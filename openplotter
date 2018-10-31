@@ -2075,10 +2075,10 @@ along with this program.  If not, see http://www.gnu.org/licenses/"""
 			self.gpio.append(ii)
 			# name, io, GPIO, pull
 			if ii[1] == 'out':
-				io = _('output')
+				io = _('output').decode('utf8')
 				source = 'output'
 			else:
-				io = _('input')
+				io = _('input').decode('utf8')
 				source = 'input'
 			self.list_gpio.Append([ii[0], io, ii[2], ii[3], 'sensors.'+ii[0],'GPIO.'+source+'.'+ii[2]])
 
@@ -2343,7 +2343,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/"""
 			time_units = self.actions.time_units[i[3]]
 			repeat2 = repeat + ' ' + time_units
 			self.list_actions.Append(
-				[self.actions.options[self.actions.getOptionsListIndex(i[0])][0].decode('utf8'), i[1].decode('utf8'), repeat2])
+				[self.actions.options[self.actions.getOptionsListIndex(i[0])][0].decode('utf8'), i[1].decode('utf8'), repeat2.decode('utf8')])
 
 	def on_edit_triggers(self, e):
 		t = e.GetIndex()
@@ -2436,7 +2436,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/"""
 			else:
 				repeat2 = str(repeat) + ' ' + time_units
 			if edit == 0:
-				self.list_actions.Append([action.decode('utf8'), data.decode('utf8'), repeat2])
+				self.list_actions.Append([action.decode('utf8'), data.decode('utf8'), repeat2.decode('utf8')])
 				tmp = []
 				tmp.append(self.actions.options[action_selection][3].encode('utf8'))
 				tmp.append(data)
